@@ -1,0 +1,72 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">New User</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <form>
+        <div class="modal-body">
+            <!-- Email -->
+            <div class="form-group mb-2">
+                <label >Email address</label>
+                <input type="email"  name="email" [(ngModel)] = "email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <!-- name -->
+            <div class="form-group mb-2">
+                <label >Name</label>
+                <input type="text"  name="name" [(ngModel)] = "name" class="form-control"  aria-describedby="emailHelp" placeholder="Enter name">
+            </div>
+            <!-- Surname -->
+            <div class="form-group mb-2">
+                <label >Surname</label>
+                <input type="text"  name="surname" [(ngModel)] = "surname" class="form-control" aria-describedby="emailHelp" placeholder="Enter name">
+            </div>
+            <!-- SubscriptionStart -->
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Subscription Start</label>
+                        <div class="input-group">
+                            <input  class="form-control" placeholder="yyyy-mm-dd" name="subscriptionStart" [(ngModel)] = "subscriptionStart" ngbDatepicker #start="ngbDatepicker"/>
+                            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="start.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Subscription End</label>
+                        <div class="input-group">
+                            <input class="form-control" placeholder="yyyy-mm-dd" name="subscriptionEnd" [(ngModel)] = "subscriptionEnd" ngbDatepicker #end="ngbDatepicker"/>
+                            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="end.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="form-group mb-2">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password">
+            </div>
+            <!-- Role -->
+            <div class="form-group mb-2">
+                <label >Role</label>
+                <select class="form-select" name="role" [(ngModel)] = "role">
+                    <option selected>Select user's Role</option>
+                    <option value="CUSTOMER">Customer</option>
+                    <option value="PT">Pt</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="isActive" [(ngModel)] = "isActive">
+                <label class="form-check-label">User is active</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click'); onSubmit()">Save</button>
+        </div>
+    </form>
+
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
