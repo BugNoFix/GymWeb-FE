@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label>Subscription Start</label>
                         <div class="input-group">
-                            <input  class="form-control" placeholder="yyyy-mm-dd" name="subscriptionStart" [(ngModel)] = "subscriptionStart" ngbDatepicker #start="ngbDatepicker"/>
+                            <input class="form-control" placeholder="yyyy-mm-dd" name="subscriptionStart" [(ngModel)] = "subscriptionStart" ngbDatepicker #start="ngbDatepicker"/>
                             <button class="btn btn-outline-secondary bi bi-calendar3" (click)="start.toggle()" type="button"></button>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
             <!-- Password -->
             <div class="form-group mb-2">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="password" class="form-control" [(ngModel)] = "password" placeholder="Password" name="password">
             </div>
             <!-- Role -->
             <div class="form-group mb-2">
