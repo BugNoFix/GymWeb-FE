@@ -21,5 +21,5 @@ export interface RegisterResponseDTO {
 }
 
 export interface LoginResponseDTO {
-  JWTToken: string;
+  jwttoken: string;
 }

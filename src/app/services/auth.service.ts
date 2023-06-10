@@ -20,8 +20,8 @@ export class AuthService {
         return this.http.post<RegisterResponseDTO>(url, body, httpHeaderOptions);
     }
 
-    login(body: RequestDTO): Observable<LoginResponseDTO>{
-        const url = `${this.apiUrl}/login/`;
+    login(body: any): Observable<LoginResponseDTO>{
+        const url = `${this.apiUrl}/login`;
         return this.http.post<LoginResponseDTO>(url, body, httpHeaderOptions);
     }
 
