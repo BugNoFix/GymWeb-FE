@@ -1,0 +1,65 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Add user body details</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <form>
+        <div class="modal-body">
+            <!-- weight -->
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">Weight</label>
+                <div class="col-sm-8">
+                <input type="number"  name="weight" [(ngModel)] = "weight" class="form-control col-3" placeholder="cm">
+                </div>
+            </div>
+            <!-- bodyfat -->
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">Bodyfat</label>
+                <div class="col-sm-8">
+                    <input type="number"  name="bodyfat" [(ngModel)] = "bodyfat" class="form-control col-3" placeholder="cm">
+                </div>
+            </div>
+            <!-- chest -->
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">Chest</label>
+                <div class="col-sm-8">
+                    <input type="number"  name="chest" [(ngModel)] = "chest" class="form-control col-3" placeholder="cm">
+                </div>
+            </div>
+            <!-- height -->
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">Height</label>
+                <div class="col-sm-8">
+                    <input type="number"  name="height" [(ngModel)] = "height" class="form-control col-3" placeholder="cm">
+                </div>
+            </div>
+            <!-- upperArm -->
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">UpperArm</label>
+                <div class="col-sm-8">
+                    <input type="number"  name="upperArm" [(ngModel)] = "upperArm" class="form-control col-3" placeholder="cm">
+                </div>
+            </div>
+            <!-- shoulders -->
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">Shoulders</label>
+                <div class="col-sm-8">
+                    <input type="number"  name="shoulders" [(ngModel)] = "shoulders" class="form-control col-3" placeholder="cm">
+                </div>
+            </div>
+            <!-- waist -->
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">Waist</label>
+                <div class="col-sm-8">
+                    <input type="number"  name="waist" [(ngModel)] = "waist" class="form-control col-3" placeholder="cm">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click'); onSubmit()">Save</button>
+        </div>
+    </form>
+
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
