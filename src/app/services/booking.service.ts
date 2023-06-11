@@ -26,6 +26,14 @@ export class BookingService {
         return this.http.post<any>(url, body, httpHeaderOptions);
     }
 
+    userBooked(body:BookingDTO, isCustomer: boolean): Observable<BookingDTO[]>{
+        let url;
+        if(isCustomer)
+             url = `${this.apiUrl}/pt`;
+        else
+             url = `${this.apiUrl}/customers`;
+        return this.http.post<any>(url, body, httpHeaderOptions);
+    }
     allCustomersBookingOfDay(body:BookingDTO): Observable<any>{
         const url = `${this.apiUrl}/customers`;
         return this.http.post<any>(url, body, httpHeaderOptions);

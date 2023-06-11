@@ -13,7 +13,7 @@ const httpHeaderOptions = {
 })
 export class RoomService {
 
-    private apiUrl = 'http://localhost:8080/api/v1/workout';
+    private apiUrl = 'http://localhost:8080/api/v1/room';
     constructor(private http:HttpClient) { }
 
     createRoom(body:RoomDTO): Observable<RoomDTO>{
@@ -28,7 +28,7 @@ export class RoomService {
 
     allRooms(page: number, size: number): Observable<SearchRoomDTO>{
         const params = {page:page, size:size};
-        const url = `${this.apiUrl}`;
+        const url = `${this.apiUrl}/all`;
         return this.http.get<SearchRoomDTO>(url, {params:params});
     }
 

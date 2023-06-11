@@ -1,0 +1,129 @@
+<app-user-navbar></app-user-navbar>
+<div class="container mt-5" style="width: 70vh">
+    <form (ngSubmit)="addBooking()" >
+    <div class="row justify-content-between bg-dark text-bg-dark p-2">
+        <div class="col-6">
+            <h3>New booking:</h3>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+    <div class="modal-body mt-3">
+        <!-- SubscriptionStart -->
+        <div class="row mb-2">
+            <div class="col mt">
+                <div class="form-group">
+                    <label>Start time</label>
+                    <div class="input-group" style="top:1.4vh">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="subscriptionStart" [(ngModel)] = "subscriptionStart" ngbDatepicker #start="ngbDatepicker"/>
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="start.toggle()" type="button"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                    <ngb-timepicker [(ngModel)]="timeStart" name="timeStart"></ngb-timepicker>
+            </div>
+        </div>
+
+        <!-- Subscriptionend -->
+        <div class="row mb-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>End time</label>
+                    <div class="input-group" style="top:1.4vh">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="subscriptionEnd" [(ngModel)]="subscriptionEnd" ngbDatepicker #end="ngbDatepicker">
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="end.toggle()" type="button"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <ngb-timepicker [(ngModel)]="timeEnd" name="timeEnd"></ngb-timepicker>
+            </div>
+        </div>
+
+        <!-- Room -->
+        <div class="form-group mb-2">
+            <label >Room</label>
+            <select class="form-select" name="room" [(ngModel)] = "room">
+                <option selected>Select room</option>
+                <option *ngFor ="let room of rooms" [ngValue]="room">{{room.name}}</option>
+            </select>
+        </div>
+        <div *ngIf="showCreated">
+            <div class="alert alert-success">
+                Booking confirmed
+            </div>
+        </div>
+        <div *ngIf="showErrorMessage">
+            <div class="alert alert-danger">
+                Error: {{errorMessage}}
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <div class="mt-2">
+        <div class="container mt-5" style="width: 70vh">
+            <form (ngSubmit)="userBooked()" >
+                <div class="row justify-content-between bg-dark text-bg-dark p-2">
+                    <div class="col-6">
+                        <div *ngIf="customer">
+                            <h3>Show Pt booked</h3>
+                        </div>
+                        <div *ngIf="!customer">
+                            <h3>Show Customer booked</h3>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+                <div class="modal-body mt-3">
+                    <!-- SubscriptionStart -->
+                    <div class="row mb-2">
+                        <div class="col mt">
+                            <div class="form-group">
+                                <label>Start time</label>
+                                <div class="input-group" style="top:1.4vh">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="subscriptionStart" [(ngModel)] = "subscriptionStart" ngbDatepicker #start="ngbDatepicker"/>
+                                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="start.toggle()" type="button"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <ngb-timepicker [(ngModel)]="timeStart" name="timeStart"></ngb-timepicker>
+                        </div>
+                    </div>
+
+                    <!-- Subscriptionend -->
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>End time</label>
+                                <div class="input-group" style="top:1.4vh">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="subscriptionEnd" [(ngModel)]="subscriptionEnd" ngbDatepicker #end="ngbDatepicker">
+                                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="end.toggle()" type="button"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <ngb-timepicker [(ngModel)]="timeEnd" name="timeEnd"></ngb-timepicker>
+                        </div>
+                    </div>
+
+                    <!-- Room -->
+                    <div class="form-group mb-2">
+                        <label >Room</label>
+                        <select class="form-select" name="room" [(ngModel)] = "room">
+                            <option selected>Select room</option>
+                            <option *ngFor ="let room of rooms" [ngValue]="room">{{room.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div *ngFor="let booked of bookeds">
+                <label>{{booked.startTime}}</label>
+            </div>
+    </div>
+</div>
