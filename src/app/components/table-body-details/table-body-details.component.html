@@ -1,4 +1,11 @@
-<app-user-details-form class="d-flex justify-content-end"></app-user-details-form>
+<div class="row">
+    <div class="col-6">
+        <h2>Body Details</h2>
+    </div>
+    <div class="col-6">
+        <app-user-details-form class="d-flex justify-content-end" (onAddUser) = "add($event)"></app-user-details-form>
+    </div>
+</div>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -25,4 +32,4 @@
     </tr>
     </tbody>
 </table>
-<ngb-pagination class="d-flex justify-content-center" [pageSize]="size" [collectionSize]="collectionSize" [(page)]="page" (pageChange)="refreshPage()"></ngb-pagination>
+<ngb-pagination class="d-flex justify-content-center"  [pageSize]="size" [collectionSize]="collectionSize" [(page)]="page" (pageChange)="refreshPage()"></ngb-pagination>

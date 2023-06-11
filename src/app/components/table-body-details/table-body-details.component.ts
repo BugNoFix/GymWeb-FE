@@ -13,7 +13,7 @@ export class TableBodyDetailsComponent {
     page!: number;
     collectionSize!: number;
 
-    constructor(private userService: UserService, private changeDetection: ChangeDetectorRef) {
+    constructor(private userService: UserService) {
         this.size = 5;
         this.page = 0;
         this.getData(this.page, this.size);
@@ -35,7 +35,7 @@ export class TableBodyDetailsComponent {
                 this.bodyDetails = res.userBodyDetails;
                 this.collectionSize = res.totalElements;
                 console.log(this.collectionSize);
-                this.changeDetection.detectChanges();
+                //this.changeDetection.detectChanges();
             },
             err => {
                 console.log(err);

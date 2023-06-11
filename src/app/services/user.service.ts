@@ -38,8 +38,8 @@ export class UserService {
     }
     getPrivacy(privacy:boolean): Observable<UserResponseDTO>{
         const params = {value:privacy};
-        const url = `${this.apiUrl}/bodyDetails`;
-        return this.http.post<UserResponseDTO>(url,params);
+        const url = `${this.apiUrl}/privacy`;
+        return this.http.get<UserResponseDTO>(url,{params:params});
     }
 
     updateUser(user:UserRequestDTO, uuid:string): Observable<UserResponseDTO>{
