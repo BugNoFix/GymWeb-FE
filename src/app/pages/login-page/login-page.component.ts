@@ -12,8 +12,6 @@ export class LoginPageComponent {
     password!: string;
     showErrorMessage: boolean = false;
     token!:string;
-
-
     constructor(private authService: AuthService, private router: Router) {}
 
     login() {

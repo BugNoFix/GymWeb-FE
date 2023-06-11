@@ -39,7 +39,7 @@ export class RegisterFormComponent {
             role: this.role,
             isActive: this.isActive
         };
-        
+
         this.onAddUser.emit(user);
 
     }
