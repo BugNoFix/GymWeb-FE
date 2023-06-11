@@ -1,0 +1,28 @@
+<app-user-details-form class="d-flex justify-content-end"></app-user-details-form>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Updated time</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Bodyfat</th>
+        <th scope="col">Height</th>
+        <th scope="col">Chest</th>
+        <th scope="col">UpperArm</th>
+        <th scope="col">Shoulders</th>
+        <th scope="col">Waist</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let bodyDetail of bodyDetails;">
+        <td>{{bodyDetail.uploadTime | date: 'dd-MM-yyyy hh:mm'}}</td>
+        <td>{{bodyDetail.weight}}</td>
+        <td>{{bodyDetail.bodyfat}}</td>
+        <td>{{bodyDetail.height}}</td>
+        <td>{{bodyDetail.chest}}</td>
+        <td>{{bodyDetail.upperArm}}</td>
+        <td>{{bodyDetail.shoulders}}</td>
+        <td>{{bodyDetail.waist}}</td>
+    </tr>
+    </tbody>
+</table>
+<ngb-pagination class="d-flex justify-content-center" [pageSize]="size" [collectionSize]="collectionSize" [(page)]="page" (pageChange)="refreshPage()"></ngb-pagination>
