@@ -1,21 +1,71 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <label class="navbar-brand" href="#">GymWeb</label>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item mx-2">
-                    <a class="nav-link active"routerLink="/">Home</a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link active" routerLink="/">Booking</a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link active" routerLink="/">Workout</a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link active" routerLink="/" (click)="logout()">Logout</a>
-                </li>
-            </ul>
+<!-- CUSTOMER NAVBAR-->
+<div *ngIf="user.role == 'CUSTOMER'">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <label class="navbar-brand" href="#">GymWeb</label>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active"routerLink="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/workout">Workout</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/feadback">Feedback</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/logout" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
+
+<!-- PT NAVBAR-->
+<div *ngIf="user.role == 'PT'">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <label class="navbar-brand" href="#">GymWeb</label>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active"routerLink="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/workout">Workout</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/logout" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- ADMIN NAVBAR-->
+<div *ngIf="user.role == 'ADMIN'">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <label class="navbar-brand" href="#">GymWeb</label>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active"routerLink="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" routerLink="/logout" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
