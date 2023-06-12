@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {SearchWorkoutPlansDTO, WorkoutPlanDTO} from "../dto/workout-plan";
 
@@ -23,13 +23,15 @@ export class WorkoutPlanService {
 
     workoutPlans(page: number, size: number): Observable<SearchWorkoutPlansDTO>{
         const params = {page:page, size:size};
-        const url = `${this.apiUrl}`;
+        const url = `${this.apiUrl}/all`;
         return this.http.get<SearchWorkoutPlansDTO>(url, {params:params});
     }
 
-    workoutPlanForCustomer(file:File, uuid:string): Observable<WorkoutPlanDTO>{
+    uploadWorkoutPlan(file:File, uuid:string): Observable<WorkoutPlanDTO>{
         const url = `${this.apiUrl}/${uuid}`;
-        return this.http.post<WorkoutPlanDTO>(url, file, httpHeaderOptions);
+        const formData: FormData = new FormData();
+        formData.set("file", file, "");
+        return this.http.post<WorkoutPlanDTO>(url, formData, {headers:new HttpHeaders()});
     }
 
     workoutPlanOfCustomer(uuid:string, page: number, size: number): Observable<SearchWorkoutPlansDTO>{

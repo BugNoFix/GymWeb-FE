@@ -12,6 +12,13 @@ import { TestComponent } from './components/test/test.component';
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import {JwtInterceptor} from "./interceptor/jwt.interceptor";
+import { TableBodyDetailsComponent } from './components/table-body-details/table-body-details.component';
+import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
+import { BookingPageComponent } from './pages/booking-page/booking-page.component';
+import { WorkoutPlanTableComponent } from './components/workout-plan-table/workout-plan-table.component';
+import { WorkoutPlanFormComponent } from './components/workout-plan-form/workout-plan-form.component';
+import { WorkoutPlanPageComponent } from './pages/workout-plan-page/workout-plan-page.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +27,13 @@ import {JwtInterceptor} from "./interceptor/jwt.interceptor";
     TestComponent,
     UserNavbarComponent,
     LoginPageComponent,
+    TableBodyDetailsComponent,
+    CustomerPageComponent,
+    BookingPageComponent,
+    WorkoutPlanTableComponent,
+    WorkoutPlanFormComponent,
+    WorkoutPlanPageComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

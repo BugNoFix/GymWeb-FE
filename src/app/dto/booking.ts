@@ -3,7 +3,9 @@ export interface BookingDTO {
     startTime: Date;
     endTime: Date;
     roomId: number;
-    uuidUser?: string;
+    name?: string;
+    surname?: string;
+
 }
 export interface SearchBookingDTO {
     bookings: BookingDTO[];

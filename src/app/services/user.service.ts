@@ -47,4 +47,9 @@ export class UserService {
         return this.http.post<UserResponseDTO>(url, user, httpHeaderOptions);
     }
 
+    getAllUserOfPt(uuidPt:string): Observable<UserResponseDTO[]>{
+        const url = `${this.apiUrl}/all/${uuidPt}`;
+        return this.http.get<UserResponseDTO[]>(url);
+    }
+
 }

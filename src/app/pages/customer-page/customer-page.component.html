@@ -1,21 +1,19 @@
 <app-user-navbar></app-user-navbar>
 <div class="row w-100">
-    <div class="col-1"></div>
-    <div class="col-5 mt-5">
-        <h1>Hello {{user.name}} {{user.surname}}</h1>
-        <h2 class="">Setting:</h2>
-        <form class="row">
-            <div class="col-2">
-                <h3 >Privacy</h3>
-            </div>
-            <div class="col-auto mt-2">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" [checked]="privacy" (click)="updatePrivacy()" >
+    <!-- <div class="col-4 mt-5 d-flex align-items-center flex-column"> -->
+    <div class="col-4 mt-5">
+        <div style="margin-left: 4vh">
+            <h1>Hello {{user.name}} {{user.surname}}</h1>
+                <div class="d-flex align-items-center">
+                    <h3 style="margin-right: 2vh;">Privacy</h3>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" [checked]="privacy" (click)="updatePrivacy()" >
+                    </div>
                 </div>
-            </div>
-        </form>
-        <h6>Pt can view your personal data</h6>
+            <h6>Pt can view your personal data</h6>
+        </div>
     </div>
+    <div class="col-2"></div>
     <div class="col-6 mt-5">
         <app-table-body-details></app-table-body-details>
     </div>

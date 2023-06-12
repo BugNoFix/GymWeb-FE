@@ -7,27 +7,27 @@ import {RequestDTO} from "../../dto/auth";
 import {BookingDTO} from "../../dto/booking";
 import {BookingService} from "../../services/booking.service";
 import {FormsModule} from "@angular/forms";
-import {JsonPipe} from "@angular/common";
 import {NgbTime} from "@ng-bootstrap/ng-bootstrap/timepicker/ngb-time";
-import {UserResponseDTO} from "../../dto/user";
+
 @Component({
   selector: 'app-booking-page',
   templateUrl: './booking-page.component.html',
   styleUrls: ['./booking-page.component.css']
 })
 export class BookingPageComponent {
-    subscriptionStart!: NgbDate;
-    subscriptionEnd!: NgbDate;
+    date!: NgbDate;
     rooms!: RoomDTO[];
     room!: RoomDTO;
     showErrorMessage: boolean = false;
     errorMessage!: string;
     showCreated: boolean = false;
-    subscriptionTime: any;
+    searchDate!: NgbDate;
     timeEnd: any  = { hour: 0, minute: 0 };
     timeStart: any = { hour: 0, minute: 0 };
     customer!: boolean;
     bookeds!: BookingDTO[];
+    timeStartSearch: any= { hour: 0, minute: 0 };
+    timeEndSearch: any= { hour: 0, minute: 0 };
 
     constructor(private bookingService:BookingService, private roomService:RoomService, private userService:UserService) {
         // TODO: visualizza massimo le prime 20 room
@@ -50,8 +50,8 @@ export class BookingPageComponent {
     }
 
     addBooking() {
-        const subscriptionStart = new Date(this.subscriptionStart.year, this.subscriptionStart.month - 1, this.subscriptionStart.day, this.timeStart.hour+2, this.timeStart.minute);
-        const subscriptionEnd = new Date(this.subscriptionEnd.year, this.subscriptionEnd.month - 1, this.subscriptionEnd.day, this.timeEnd.hour+2, this.timeEnd.minute);
+        const subscriptionStart = new Date(this.date.year, this.date.month - 1, this.date.day, this.timeStart.hour+2, this.timeStart.minute);
+        const subscriptionEnd = new Date(this.date.year, this.date.month - 1, this.date.day, this.timeEnd.hour+2, this.timeEnd.minute);
 
         const booking: BookingDTO = {
             startTime: subscriptionStart,
@@ -74,12 +74,12 @@ export class BookingPageComponent {
     }
 
     userBooked() {
-        const subscriptionStart = new Date(this.subscriptionStart.year, this.subscriptionStart.month - 1, this.subscriptionStart.day, this.timeStart.hour+2, this.timeStart.minute);
-        const subscriptionEnd = new Date(this.subscriptionEnd.year, this.subscriptionEnd.month - 1, this.subscriptionEnd.day, this.timeEnd.hour+2, this.timeEnd.minute);
+        const searchDateStart = new Date(this.searchDate.year, this.searchDate.month - 1, this.searchDate.day, this.timeStartSearch.hour +2, this.timeStartSearch.minute);
+        const searchDateEnd = new Date(this.searchDate.year, this.searchDate.month - 1, this.searchDate.day, this.timeEndSearch.hour +2 , this.timeEndSearch.minute);
 
         const booking: BookingDTO = {
-            startTime: subscriptionStart,
-            endTime: subscriptionEnd,
+            startTime: searchDateStart,
+            endTime: searchDateEnd,
             roomId: this.room.id
         };
 
@@ -91,4 +91,5 @@ export class BookingPageComponent {
         )
 
     }
+
 }

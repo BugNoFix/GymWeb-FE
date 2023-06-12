@@ -19,7 +19,7 @@ export class LoginPageComponent {
         this.authService.login(data).subscribe(
             suc => {
                 localStorage.setItem('jwtToken', suc.jwttoken);
-                //this.router.navigate(['/homepage']);
+                this.router.navigate(['/homepage']);
             },
             err => {
                 this.showErrorMessage=true;
