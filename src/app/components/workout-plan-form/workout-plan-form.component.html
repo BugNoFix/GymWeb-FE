@@ -1,0 +1,32 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Add WorkoutPlan</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <form>
+        <div class="modal-body">
+            <!-- File -->
+            <div class="mb-3">
+                <label class="form-label">Workout plan:</label>
+                <input class="form-control" type="file" (change)="onFileChange($event)" >
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-sm-4 col-form-label">Customer: </label>
+                <div class="col-sm-8">
+                    <select class="form-select" name="selectedUser" [(ngModel)] = "selectedUser">
+                        <option selected>Select customer</option>
+                        <option *ngFor = "let user of users" [ngValue]="user">{{user.name}} {{user.surname}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click'); onSubmit()" [disabled]="!selectedUser">Save</button>
+            </div>
+        </div>
+    </form>
+
+</ng-template>
+
+<button class="btn btn-primary"(click)="open(content)">Add</button>

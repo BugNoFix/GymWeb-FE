@@ -1,0 +1,29 @@
+<div class="container mt-5" style="width: 70vh">
+    <div class="row justify-content-between bg-dark text-bg-dark p-2">
+        <div class="col-6">
+            <h3>WorkoutPlans</h3>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <div *ngIf="!isCustomer">
+                <app-workout-plan-form (addedWorkout)="addWorkoutView($event)"></app-workout-plan-form>
+            </div>
+        </div>
+    </div>
+        <div class="modal-body mt-3">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Updated time</th>
+                    <th scope="col">Download</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let workouPlan of workoutPlans;">
+                    <td>{{workouPlan.uploadTime | date: 'dd-MM-yyyy'}}</td>
+                    <td><a href="http://localhost:8080/download/{{workouPlan.path}}">Download</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+</div>
