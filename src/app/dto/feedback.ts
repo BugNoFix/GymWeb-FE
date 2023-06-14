@@ -1,7 +1,7 @@
 export interface FeedbackDTO {
     text: string;
-    createdTime: Date;
-    userFeedbackDTOs: UserFeedbackDTO[];
+    createdTime: Date | null;
+    userFeedbackDTOs: UserFeedbackDTO[] | null;
 }
 
 export interface UserFeedbackDTO {

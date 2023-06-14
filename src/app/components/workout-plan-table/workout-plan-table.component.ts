@@ -2,6 +2,7 @@ import {Component, EventEmitter, HostListener, Output} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {WorkoutPlanService} from "../../services/workout-plan.service";
 import {WorkoutPlanDTO} from "../../dto/workout-plan";
+import {FeedbackDTO} from "../../dto/feedback";
 
 @Component({
   selector: 'app-workout-plan-table',

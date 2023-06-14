@@ -18,12 +18,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let workouPlan of workoutPlans;">
-                    <td>{{workouPlan.uploadTime | date: 'dd-MM-yyyy'}}</td>
-                    <td><a href="http://localhost:8080/download/{{workouPlan.path}}">Download</a></td>
+                <tr *ngFor="let workoutPlan of workoutPlans;">
+                    <td>{{workoutPlan.uploadTime | date: 'dd-MM-yyyy'}}</td>
+                    <td><a href="http://localhost:8080/download/{{workoutPlan.path}}">Download</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
 </div>

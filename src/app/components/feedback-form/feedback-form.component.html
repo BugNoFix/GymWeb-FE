@@ -1,0 +1,22 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Add WorkoutPlan</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <form>
+        <div class="modal-body">
+            <!-- Feedback -->
+            <div class="form-group mb-2">
+                <label>Write a feedback of your pt</label>
+                <textarea  type="text" class="form-control" [(ngModel)] = "text" placeholder="i think....." name="text"></textarea>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click'); onSubmit()" [disabled]="!text">Save</button>
+            </div>
+        </div>
+    </form>
+
+</ng-template>
+
+<button class="btn btn-primary"(click)="open(content)">Add</button>

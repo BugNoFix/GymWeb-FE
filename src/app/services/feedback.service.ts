@@ -22,10 +22,10 @@ export class FeedbackService {
         return this.http.post<FeedbackDTO>(url, body, httpHeaderOptions);
     }
 
-    getFeedbacksPt(uuid:string, page: number, size: number): Observable<SearchFeedbackDTO>{
+    getFeedbacksPt(uuid:string | null, page: number, size: number): Observable<SearchFeedbackDTO>{
         const params = {page:page, size:size};
         const url = `${this.apiUrl}/${uuid}`;
-        return this.http.post<SearchFeedbackDTO>(url, {params:params});
+        return this.http.get<SearchFeedbackDTO>(url, {params:params});
     }
 
 

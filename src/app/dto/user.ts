@@ -32,6 +32,6 @@ export interface UserResponseDTO {
     subscriptionStart: Date;
     subscriptionEnd: Date;
     privacy: boolean;
-    uuidPt?: string;
+    uuidPt: string | null;
     role: string;
 }
