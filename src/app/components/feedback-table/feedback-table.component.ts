@@ -19,7 +19,12 @@ export class FeedbackTableComponent {
         userService.user().subscribe(
             res => {
                 this.me = res;
-                feedbackService.getFeedbacksPt(this.me.uuidPt, 0, 20).subscribe(
+                let uuid;
+                if(this.me.role == "PT")
+                    uuid = this.me.uuid
+                else
+                    uuid = this.me.uuidPt
+                feedbackService.getFeedbacksPt(uuid, 0, 20).subscribe(
                     res => {
                         this.feedbacks = res.feedbacks;
                     }
