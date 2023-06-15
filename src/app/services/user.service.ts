@@ -34,7 +34,7 @@ export class UserService {
     getBodyDetailsOfUser(page: number, size: number, uuid:string): Observable<SearchUserBodyDetailsDTO>{
         const params = {page:page, size:size};
         const url = `${this.apiUrl}/bodyDetails/${uuid}`;
-        return this.http.post<SearchUserBodyDetailsDTO>(url,params);
+        return this.http.get<SearchUserBodyDetailsDTO>(url, {params:params});
     }
     getPrivacy(privacy:boolean): Observable<UserResponseDTO>{
         const params = {value:privacy};

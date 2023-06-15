@@ -1,0 +1,22 @@
+<div class="container mt-5" style="width: 70vh">
+    <div class="row justify-content-between bg-dark text-bg-dark p-2">
+        <h3>My Customer</h3>
+    </div>
+    <div class="modal-body mt-3">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Customer</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of users;">
+                <td>{{user.name}} {{user.surname}} </td>
+                <td><a routerLink="/customer/{{user.uuid}}">View user</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

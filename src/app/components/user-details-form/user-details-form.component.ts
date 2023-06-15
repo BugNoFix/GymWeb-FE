@@ -18,13 +18,13 @@ export class UserDetailsFormComponent {
     shoulders!: number;
     waist!: number;
     uploadTime!: Date;
+
     constructor(private modalService: NgbModal) {}
     open(content: any) {
         this.modalService.open(content, { size: 'sm' }).result.then();
     }
 
     onSubmit(){
-
         const userDetails: UserBodyDetailsDTO = {
             weight: this.weight,
             bodyfat: this.bodyfat,
@@ -34,7 +34,6 @@ export class UserDetailsFormComponent {
             shoulders: this.shoulders,
             waist: this.waist
         };
-        console.log(userDetails);
         this.onAddUser.emit(userDetails);
 
     }

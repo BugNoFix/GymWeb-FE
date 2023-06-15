@@ -7,6 +7,8 @@ import {WorkoutPlanPageComponent} from "./pages/workout-plan-page/workout-plan-p
 import {LogoutComponent} from "./pages/logout/logout.component";
 import {JwtGuard} from "./guard/jwt-guard";
 import {FeedbackPageComponent} from "./pages/feedback-page/feedback-page.component";
+import {PtPageComponent} from "./pages/pt-page/pt-page.component";
+import {CustomerDetailsPageComponent} from "./pages/customer-details-page/customer-details-page.component";
 
 const routes: Routes = [
     { path: '', component: CustomerPageComponent, canActivate: [JwtGuard]},
@@ -15,6 +17,8 @@ const routes: Routes = [
     { path: 'booking', component: BookingPageComponent, canActivate: [JwtGuard]},
     { path: 'workout', component: WorkoutPlanPageComponent, canActivate: [JwtGuard]},
     { path: 'feedback', component: FeedbackPageComponent, canActivate: [JwtGuard]},
+    { path: 'pthomepage', component: PtPageComponent, canActivate: [JwtGuard]},
+    { path: 'customer/:uuid', component: CustomerDetailsPageComponent, canActivate: [JwtGuard]},
     { path: 'logout', component: LogoutComponent},
 ];
 

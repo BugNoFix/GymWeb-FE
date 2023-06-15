@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectorRef, Component, computed, Input, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UserBodyDetailsDTO} from "../../dto/user";
 
@@ -7,16 +7,16 @@ import {UserBodyDetailsDTO} from "../../dto/user";
   templateUrl: './table-body-details.component.html',
   styleUrls: ['./table-body-details.component.css']
 })
-export class TableBodyDetailsComponent {
+export class TableBodyDetailsComponent implements OnInit{
     bodyDetails!: UserBodyDetailsDTO[];
     size!: number;
     page!: number;
     collectionSize!: number;
+    @Input() uuid!: string | null;
 
     constructor(private userService: UserService) {
         this.size = 5;
         this.page = 0;
-        this.getData(this.page, this.size);
     }
 
     add(bodyDetails: UserBodyDetailsDTO){
@@ -30,20 +30,39 @@ export class TableBodyDetailsComponent {
     }
 
     getData(page:number, size:number){
-        this.userService.getBodyDetails(page, size).subscribe(
-            res => {
-                this.bodyDetails = res.userBodyDetails;
-                this.collectionSize = res.totalElements;
-                console.log(this.collectionSize);
-                //this.changeDetection.detectChanges();
-            },
-            err => {
-                console.log(err);
-            }
-        );
+        // Homepage customer
+        if(this.uuid == "" || this.uuid == null) {
+            this.userService.getBodyDetails(page, size).subscribe(
+                res => {
+                    this.bodyDetails = res.userBodyDetails;
+                    this.collectionSize = res.totalElements;
+                    //this.changeDetection.detectChanges();
+                },
+                err => {
+                    console.log(err);
+                }
+            );
+        }
+        // Data on page pt
+        else{
+            this.userService.getBodyDetailsOfUser(page, size, this.uuid).subscribe(
+                res => {
+                    this.bodyDetails = res.userBodyDetails;
+                    this.collectionSize = res.totalElements;
+                    //this.changeDetection.detectChanges();
+                },
+                err => {
+                    console.log(err);
+                }
+            );
+        }
     }
 
     refreshPage() {
         this.getData(this.page-1, this.size);
+    }
+
+    ngOnInit(): void {
+        this.getData(this.page, this.size);
     }
 }

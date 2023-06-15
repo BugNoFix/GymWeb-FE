@@ -9,20 +9,20 @@
             </div>
         </div>
     </div>
-        <div class="modal-body mt-3">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Updated time</th>
-                    <th scope="col">Download</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let workoutPlan of workoutPlans;">
-                    <td>{{workoutPlan.uploadTime | date: 'dd-MM-yyyy'}}</td>
-                    <td><a href="http://localhost:8080/download/{{workoutPlan.path}}">Download</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="modal-body mt-3">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Updated time</th>
+                <th scope="col">Download</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let workoutPlan of workoutPlans;">
+                <td>{{workoutPlan.uploadTime | date: 'dd-MM-yyyy'}}</td>
+                <td><a href="http://localhost:8080/download/{{workoutPlan.path}}">Download</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

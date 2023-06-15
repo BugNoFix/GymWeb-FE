@@ -2,7 +2,7 @@
     <div class="col-6">
         <h2>Body Details</h2>
     </div>
-    <div class="col-6">
+    <div class="col-6" *ngIf="uuid == '' || uuid == null">
         <app-user-details-form class="d-flex justify-content-end" (onAddUser) = "add($event)"></app-user-details-form>
     </div>
 </div>

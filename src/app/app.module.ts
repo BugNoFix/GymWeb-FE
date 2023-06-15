@@ -22,6 +22,9 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { FeedbackTableComponent } from './components/feedback-table/feedback-table.component';
 import { FeedbackPageComponent } from './pages/feedback-page/feedback-page.component';
+import { ListCustomerOfPtComponent } from './components/list-customer-of-pt/list-customer-of-pt.component';
+import { PtPageComponent } from './pages/pt-page/pt-page.component';
+import { CustomerDetailsPageComponent } from './pages/customer-details-page/customer-details-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,9 @@ import { FeedbackPageComponent } from './pages/feedback-page/feedback-page.compo
     FeedbackFormComponent,
     FeedbackTableComponent,
     FeedbackPageComponent,
+    ListCustomerOfPtComponent,
+    PtPageComponent,
+    CustomerDetailsPageComponent,
   ],
   imports: [
     BrowserModule,
