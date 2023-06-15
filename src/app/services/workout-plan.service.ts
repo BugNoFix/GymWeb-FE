@@ -34,7 +34,7 @@ export class WorkoutPlanService {
         return this.http.post<WorkoutPlanDTO>(url, formData, {headers:new HttpHeaders()});
     }
 
-    workoutPlanOfCustomer(uuid:string, page: number, size: number): Observable<SearchWorkoutPlansDTO>{
+    workoutPlansOfCustomer(uuid:string, page: number, size: number): Observable<SearchWorkoutPlansDTO>{
         const url = `${this.apiUrl}/all/${uuid}`;
         const params = {page:page, size:size};
         return this.http.get<SearchWorkoutPlansDTO>(url, {params:params});
