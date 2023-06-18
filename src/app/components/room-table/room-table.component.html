@@ -1,0 +1,31 @@
+<div class="row justify-content-between bg-dark text-bg-dark p-2">
+    <div class="col-6">
+        <h3>Rooms</h3>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <app-room-form (addedRoom)="addRoomView($event)" ></app-room-form>
+    </div>
+</div>
+<div class="modal-body mt-3">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Size</th>
+            <th scope="col">Active</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let room of rooms;">
+            <td>{{room.name}}</td>
+            <td>{{room.size}}</td>
+            <td>
+                <div class="form-check form-switch col-3 d-flex justify-content-end" >
+                    <input type="checkbox" class="form-check-input" [(ngModel)] = "room.active" (click)="update(room)" name="isActive">
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+

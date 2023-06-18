@@ -31,7 +31,7 @@ export class AuthService {
     }
 
     activeUser(isActive :boolean, uuid: string): Observable<RegisterResponseDTO>{
-        let params = new HttpParams().set('isActive', isActive);
+        let params = new HttpParams().set('isActive', isActive); // TODO forse non funziona perche c'è is
         const url = `${this.apiUrl}/activeUser/${uuid}`;
         //const options = {params: params, headers: headers}; // TODO testare la sintassi, vedere se mettere headers:ss
         const options = {params: params};

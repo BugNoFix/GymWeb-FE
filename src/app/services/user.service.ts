@@ -47,9 +47,25 @@ export class UserService {
         return this.http.post<UserResponseDTO>(url, user, httpHeaderOptions);
     }
 
+    createUser(user:UserRequestDTO): Observable<UserResponseDTO>{
+        const url =`${this.apiUrl}/create`;
+        return this.http.post<UserResponseDTO>(url, user, httpHeaderOptions);
+    }
+
     getAllUserOfPt(uuidPt:string): Observable<UserResponseDTO[]>{
         const url = `${this.apiUrl}/all/${uuidPt}`;
         return this.http.get<UserResponseDTO[]>(url);
     }
 
+    getAllUser(page: number, size: number,): Observable<UserResponseDTO[]>{
+        const params = {page:page, size:size};
+        const url = `${this.apiUrl}/all`;
+        return this.http.get<UserResponseDTO[]>(url, {params:params});
+    }
+
+    getAllPt(page: number, size: number,): Observable<UserResponseDTO[]>{
+        const params = {page:page, size:size};
+        const url = `${this.apiUrl}/allPt`;
+        return this.http.get<UserResponseDTO[]>(url, {params:params});
+    }
 }

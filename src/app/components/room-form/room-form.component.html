@@ -1,0 +1,38 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Add WorkoutPlan</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <form>
+        <div class="modal-body">
+            <!-- Room name -->
+            <div class="form-group mb-2 row d-flex align-items-center">
+                <label class="col-4">Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" [(ngModel)] = "name" placeholder="Name of room" name="name">
+                </div>
+            </div>
+            <!-- Room size -->
+            <div class="form-group mb-2 row d-flex align-items-center">
+                <label class="col-4">Size</label>
+                <div class="col-8">
+                    <input type="number" class="form-control" [(ngModel)] = "size" placeholder="Size of room" name="size">
+                </div>
+            </div>
+            <!-- Room is Active -->
+            <div class="form-group mb-2 row">
+                <label class="col-9">Is active</label>
+                <div class="form-check form-switch col-3 d-flex justify-content-end" >
+                    <input type="checkbox" class="form-check-input" [(ngModel)] = "active" name="isActive">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click'); onSubmit()" [disabled]="!name">Save</button>
+            </div>
+        </div>
+    </form>
+
+</ng-template>
+
+<button class="btn btn-primary"(click)="open(content)">Add</button>

@@ -1,0 +1,31 @@
+<div class="row justify-content-between bg-dark text-bg-dark p-2">
+    <div class="col-6">
+        <h3>Users</h3>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <app-register-form (addUser)="addUserView($event)"></app-register-form>
+    </div>
+</div>
+<div class="modal-body mt-3">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users;">
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td><app-register-form [user]="user"></app-register-form></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+

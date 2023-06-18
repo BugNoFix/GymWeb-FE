@@ -20,8 +20,12 @@ export interface UserRequestDTO {
     name: string;
     surname: string;
     privacy: boolean;
-    uuidPt: string;
     isActive: boolean;
+    subscriptionStart: Date;
+    subscriptionEnd: Date;
+    role: string;
+    password: string;
+    uuidPt:string;
 }
 
 export interface UserResponseDTO {
@@ -29,9 +33,10 @@ export interface UserResponseDTO {
     email: string;
     name: string;
     surname: string;
-    subscriptionStart: Date;
-    subscriptionEnd: Date;
+    subscriptionStart: string;
+    subscriptionEnd: string;
     privacy: boolean;
-    uuidPt: string | null;
+    uuidPt: string;
     role: string;
+    active: boolean;
 }

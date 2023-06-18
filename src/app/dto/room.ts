@@ -1,8 +1,7 @@
 export interface RoomDTO {
     name: string;
-    isActive: boolean;
+    active: boolean;
     size: number;
-
     id: number;
 }
 export interface SearchRoomDTO {

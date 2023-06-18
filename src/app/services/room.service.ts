@@ -22,7 +22,7 @@ export class RoomService {
     }
 
     roomUpdate(body:RoomDTO): Observable<RoomDTO>{
-        const url = `${this.apiUrl}`;
+        const url = `${this.apiUrl}/update`;
         return this.http.post<RoomDTO>(url, body, httpHeaderOptions);
     }
 

@@ -9,16 +9,19 @@ import {JwtGuard} from "./guard/jwt-guard";
 import {FeedbackPageComponent} from "./pages/feedback-page/feedback-page.component";
 import {PtPageComponent} from "./pages/pt-page/pt-page.component";
 import {CustomerDetailsPageComponent} from "./pages/customer-details-page/customer-details-page.component";
+import {RoomPageComponent} from "./pages/room-page/room-page.component";
+import {AdminHomePageComponent} from "./pages/admin-home-page/admin-home-page.component";
+import {GenericHomePageComponent} from "./pages/generic-home-page/generic-home-page.component";
 
 const routes: Routes = [
     { path: '', component: CustomerPageComponent, canActivate: [JwtGuard]},
-    { path: 'homepage', component: CustomerPageComponent , canActivate: [JwtGuard]},
+    { path: 'homepage', component: GenericHomePageComponent, canActivate: [JwtGuard]},
     { path: 'login', component: LoginPageComponent},
     { path: 'booking', component: BookingPageComponent, canActivate: [JwtGuard]},
     { path: 'workout', component: WorkoutPlanPageComponent, canActivate: [JwtGuard]},
     { path: 'feedback', component: FeedbackPageComponent, canActivate: [JwtGuard]},
-    { path: 'pthomepage', component: PtPageComponent, canActivate: [JwtGuard]},
     { path: 'customer/:uuid', component: CustomerDetailsPageComponent, canActivate: [JwtGuard]},
+    { path: 'room', component: RoomPageComponent, canActivate: [JwtGuard]},
     { path: 'logout', component: LogoutComponent},
 ];
 

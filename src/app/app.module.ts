@@ -25,6 +25,12 @@ import { FeedbackPageComponent } from './pages/feedback-page/feedback-page.compo
 import { ListCustomerOfPtComponent } from './components/list-customer-of-pt/list-customer-of-pt.component';
 import { PtPageComponent } from './pages/pt-page/pt-page.component';
 import { CustomerDetailsPageComponent } from './pages/customer-details-page/customer-details-page.component';
+import { RoomFormComponent } from './components/room-form/room-form.component';
+import { RoomTableComponent } from './components/room-table/room-table.component';
+import { RoomPageComponent } from './pages/room-page/room-page.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
+import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.component';
+import { GenericHomePageComponent } from './pages/generic-home-page/generic-home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +52,12 @@ import { CustomerDetailsPageComponent } from './pages/customer-details-page/cust
     ListCustomerOfPtComponent,
     PtPageComponent,
     CustomerDetailsPageComponent,
+    RoomFormComponent,
+    RoomTableComponent,
+    RoomPageComponent,
+    UserTableComponent,
+    AdminHomePageComponent,
+    GenericHomePageComponent,
   ],
   imports: [
     BrowserModule,
