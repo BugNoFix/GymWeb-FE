@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {
+    SearchUserBodyDetailsDTO,
+    SearchUsersDTO,
     UserBodyDetailsDTO,
     UserRequestDTO,
-    SearchUserBodyDetailsDTO,
-    UserResponseDTO,
-    SearchUsersDTO
+    UserResponseDTO
 } from "../dto/user";
 import {Observable} from "rxjs";
 

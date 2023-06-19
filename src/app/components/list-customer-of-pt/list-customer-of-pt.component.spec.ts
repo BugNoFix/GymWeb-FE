@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListCustomerOfPtComponent } from './list-customer-of-pt.component';
+import {ListCustomerOfPtComponent} from './list-customer-of-pt.component';
 
 describe('ListCustomerOfPtComponent', () => {
   let component: ListCustomerOfPtComponent;

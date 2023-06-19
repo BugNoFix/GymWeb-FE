@@ -1,5 +1,3 @@
-import {NgbDate} from "@ng-bootstrap/ng-bootstrap";
-
 export interface RequestDTO {
   name: string;
   surname: string;

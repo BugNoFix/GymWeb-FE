@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FeedbackFormComponent } from './feedback-form.component';
+import {FeedbackFormComponent} from './feedback-form.component';
 
 describe('FeedbackFormComponent', () => {
   let component: FeedbackFormComponent;

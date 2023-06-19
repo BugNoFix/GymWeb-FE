@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GenericHomePageComponent } from './generic-home-page.component';
+import {GenericHomePageComponent} from './generic-home-page.component';
 
 describe('GenericHomePageComponent', () => {
   let component: GenericHomePageComponent;

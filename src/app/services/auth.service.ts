@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {RequestDTO, RegisterResponseDTO, LoginResponseDTO} from '../dto/auth'
+import {LoginResponseDTO, RegisterResponseDTO, RequestDTO} from '../dto/auth'
 import {Observable} from "rxjs";
 
 const httpHeaderOptions = {

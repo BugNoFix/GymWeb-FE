@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WorkoutPlanTableComponent } from './workout-plan-table.component';
+import {WorkoutPlanTableComponent} from './workout-plan-table.component';
 
 describe('WorkoutPlanTableComponent', () => {
   let component: WorkoutPlanTableComponent;

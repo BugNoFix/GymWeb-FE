@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PtPageComponent } from './pt-page.component';
+import {PtPageComponent} from './pt-page.component';
 
 describe('PtPageComponent', () => {
   let component: PtPageComponent;

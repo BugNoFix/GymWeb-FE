@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
-import {WorkoutPlanService} from "../../services/workout-plan.service";
+import {Component} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {WorkoutPlanDTO} from "../../dto/workout-plan";
-import {AuthService} from "../../services/auth.service";
-import {RegisterResponseDTO} from "../../dto/auth";
 import {UserResponseDTO} from "../../dto/user";
 
 @Component({

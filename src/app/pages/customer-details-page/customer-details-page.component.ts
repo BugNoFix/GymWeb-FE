@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {UserResponseDTO} from "../../dto/user";
 import {UserService} from "../../services/user.service";

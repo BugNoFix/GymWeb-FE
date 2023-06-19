@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {CustomerPageComponent} from "./pages/customer-page/customer-page.component";
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
 import {BookingPageComponent} from "./pages/booking-page/booking-page.component";
@@ -7,10 +7,8 @@ import {WorkoutPlanPageComponent} from "./pages/workout-plan-page/workout-plan-p
 import {LogoutComponent} from "./pages/logout/logout.component";
 import {JwtGuard} from "./guard/jwt-guard";
 import {FeedbackPageComponent} from "./pages/feedback-page/feedback-page.component";
-import {PtPageComponent} from "./pages/pt-page/pt-page.component";
 import {CustomerDetailsPageComponent} from "./pages/customer-details-page/customer-details-page.component";
 import {RoomPageComponent} from "./pages/room-page/room-page.component";
-import {AdminHomePageComponent} from "./pages/admin-home-page/admin-home-page.component";
 import {GenericHomePageComponent} from "./pages/generic-home-page/generic-home-page.component";
 
 const routes: Routes = [

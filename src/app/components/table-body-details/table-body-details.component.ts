@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, computed, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UserBodyDetailsDTO} from "../../dto/user";
 

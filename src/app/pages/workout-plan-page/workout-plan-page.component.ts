@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {UserResponseDTO} from "../../dto/user";
-import {BookingService} from "../../services/booking.service";
-import {RoomService} from "../../services/room.service";
 import {UserService} from "../../services/user.service";
 
 @Component({

@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {UserService} from "../../services/user.service";
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({

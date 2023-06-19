@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UserResponseDTO} from "../../dto/user";
 

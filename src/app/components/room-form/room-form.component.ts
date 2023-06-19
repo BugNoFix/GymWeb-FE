@@ -1,9 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {UserResponseDTO} from "../../dto/user";
-import {FeedbackDTO} from "../../dto/feedback";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserService} from "../../services/user.service";
-import {FeedbackService} from "../../services/feedback.service";
 import {RoomService} from "../../services/room.service";
 import {RoomDTO} from "../../dto/room";
 

@@ -1,7 +1,4 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {WorkoutPlanService} from "../../services/workout-plan.service";
-import {UserService} from "../../services/user.service";
-import {WorkoutPlanDTO} from "../../dto/workout-plan";
 import {RoomDTO} from "../../dto/room";
 import {RoomService} from "../../services/room.service";
 

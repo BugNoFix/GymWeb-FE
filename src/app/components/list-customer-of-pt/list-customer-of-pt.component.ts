@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {FeedbackService} from "../../services/feedback.service";
+import {Component} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UserResponseDTO} from "../../dto/user";
 

@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
-import {NgbDate, NgbTimepickerModule} from "@ng-bootstrap/ng-bootstrap";
+import {Component} from '@angular/core';
+import {NgbDate} from "@ng-bootstrap/ng-bootstrap";
 import {UserService} from "../../services/user.service";
 import {RoomService} from "../../services/room.service";
 import {RoomDTO} from "../../dto/room";
-import {RequestDTO} from "../../dto/auth";
 import {BookingDTO} from "../../dto/booking";
 import {BookingService} from "../../services/booking.service";
-import {FormsModule} from "@angular/forms";
-import {NgbTime} from "@ng-bootstrap/ng-bootstrap/timepicker/ngb-time";
 
 @Component({
   selector: 'app-booking-page',

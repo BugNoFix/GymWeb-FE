@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {RoomDTO} from "../dto/room";
 import {Observable} from "rxjs";
 import {FeedbackDTO, SearchFeedbackDTO} from "../dto/feedback";
 

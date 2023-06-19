@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FeedbackTableComponent } from './feedback-table.component';
+import {FeedbackTableComponent} from './feedback-table.component';
 
 describe('FeedbackTableComponent', () => {
   let component: FeedbackTableComponent;
