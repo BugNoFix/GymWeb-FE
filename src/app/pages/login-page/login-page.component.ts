@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 
@@ -7,11 +7,10 @@ import {AuthService} from "../../services/auth.service";
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit{
     email!: string;
     password!: string;
     showErrorMessage: boolean = false;
-    token!:string;
     constructor(private authService: AuthService, private router: Router) {}
 
     login() {
@@ -24,5 +23,9 @@ export class LoginPageComponent {
             err => {
                 this.showErrorMessage=true;
             });
+    }
+
+    ngOnInit(): void {
+        localStorage.clear();
     }
 }

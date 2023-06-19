@@ -7,7 +7,7 @@ import {
     UserRequestDTO,
     UserResponseDTO
 } from "../dto/user";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable, tap} from "rxjs";
 
 const httpHeaderOptions = {
     headers: new HttpHeaders({
@@ -19,11 +19,22 @@ const httpHeaderOptions = {
 })
 export class UserService {
     private apiUrl = 'http://localhost:8080/api/v1/user';
+
+    currentUserSubject = new BehaviorSubject<UserResponseDTO | null>(null);
     constructor(private http:HttpClient) { }
+
+    getUserUpdates(){
+       return this.currentUserSubject.asObservable();
+    }
+
+    setUserUpdates(user: UserResponseDTO){
+        this.currentUserSubject.next(user);
+    }
 
     user(): Observable<UserResponseDTO>{
         const url = `${this.apiUrl}`;
-        return this.http.get<UserResponseDTO>(url, httpHeaderOptions);
+        return this.http.get<UserResponseDTO>(url, httpHeaderOptions).pipe(tap(u => this.setUserUpdates(u)));
+
     }
 
     getBodyDetails(page: number, size: number): Observable<SearchUserBodyDetailsDTO>{

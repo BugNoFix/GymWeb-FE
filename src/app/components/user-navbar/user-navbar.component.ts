@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UserResponseDTO} from "../../dto/user";
 import {Router} from "@angular/router";
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './user-navbar.component.html',
   styleUrls: ['./user-navbar.component.css']
 })
-export class UserNavbarComponent {
+export class UserNavbarComponent implements OnInit{
 
     user!: UserResponseDTO;
     constructor(private userService:UserService, public router:Router) {
@@ -17,9 +17,16 @@ export class UserNavbarComponent {
                 this.user = res;
             }
         )
-    }
 
+    }
     logout() {
         localStorage.removeItem('jwtToken');
+    }
+
+    ngOnInit(): void {
+        this.userService.getUserUpdates().subscribe(u => {
+            if(u)
+                this.user = u;
+        });
     }
 }
