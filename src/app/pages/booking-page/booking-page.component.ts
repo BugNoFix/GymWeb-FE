@@ -25,6 +25,7 @@ export class BookingPageComponent {
     bookeds!: BookingDTO[];
     timeStartSearch: any= { hour: 0, minute: 0 };
     timeEndSearch: any= { hour: 0, minute: 0 };
+    roomSearch!: RoomDTO;
 
     constructor(private bookingService:BookingService, private roomService:RoomService, private userService:UserService) {
         // TODO: visualizza massimo le prime 20 room
@@ -35,12 +36,10 @@ export class BookingPageComponent {
         );
         userService.user().subscribe(
             res =>{
-                console.log(res.role)
                 if(res.role == "CUSTOMER")
                     this.customer = true;
                 else
                     this.customer = false;
-                console.log(this.customer)
             }
         )
 
@@ -77,7 +76,7 @@ export class BookingPageComponent {
         const booking: BookingDTO = {
             startTime: searchDateStart,
             endTime: searchDateEnd,
-            roomId: this.room.id
+            roomId: this.roomSearch.id
         };
 
         this.bookingService.userBooked(booking, this.customer).subscribe(
@@ -89,4 +88,13 @@ export class BookingPageComponent {
 
     }
 
+    minutesUpdate(time: any) {
+        if (this.timeStartSearch.minute > 0 && this.timeStartSearch.minute < 15)
+            time = { hour: 0, minute: 15 };
+        console.log(time)
+    }
+
+    timeStartSearchUpdate() {
+       this.minutesUpdate(this.timeStartSearch);
+    }
 }
