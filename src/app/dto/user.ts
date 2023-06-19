@@ -15,12 +15,17 @@ export interface SearchUserBodyDetailsDTO {
     totalElements: number;
 }
 
+export interface SearchUsersDTO {
+    users: UserResponseDTO[];
+    totalPages: number;
+    totalElements: number;
+}
 export interface UserRequestDTO {
     email: string;
     name: string;
     surname: string;
     privacy: boolean;
-    isActive: boolean;
+    active: boolean;
     subscriptionStart: Date;
     subscriptionEnd: Date;
     role: string;

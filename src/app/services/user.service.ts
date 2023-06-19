@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {UserBodyDetailsDTO, UserRequestDTO, SearchUserBodyDetailsDTO, UserResponseDTO} from "../dto/user";
+import {
+    UserBodyDetailsDTO,
+    UserRequestDTO,
+    SearchUserBodyDetailsDTO,
+    UserResponseDTO,
+    SearchUsersDTO
+} from "../dto/user";
 import {Observable} from "rxjs";
 
 const httpHeaderOptions = {
@@ -52,15 +58,15 @@ export class UserService {
         return this.http.post<UserResponseDTO>(url, user, httpHeaderOptions);
     }
 
-    getAllUserOfPt(uuidPt:string): Observable<UserResponseDTO[]>{
+    getAllUserOfPt(uuidPt:string): Observable<SearchUsersDTO>{
         const url = `${this.apiUrl}/all/${uuidPt}`;
-        return this.http.get<UserResponseDTO[]>(url);
+        return this.http.get<SearchUsersDTO>(url);
     }
 
-    getAllUser(page: number, size: number,): Observable<UserResponseDTO[]>{
+    getAllUser(page: number, size: number,): Observable<SearchUsersDTO>{
         const params = {page:page, size:size};
         const url = `${this.apiUrl}/all`;
-        return this.http.get<UserResponseDTO[]>(url, {params:params});
+        return this.http.get<SearchUsersDTO>(url, {params:params});
     }
 
     getAllPt(page: number, size: number,): Observable<UserResponseDTO[]>{

@@ -23,7 +23,7 @@
             <td>{{user.surname}}</td>
             <td>{{user.email}}</td>
             <td>{{user.role}}</td>
-            <td><app-register-form [user]="user"></app-register-form></td>
+            <td><app-register-form [user]="user" (updateUser)="reloadPage()" /></td>
         </tr>
         </tbody>
     </table>

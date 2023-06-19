@@ -26,7 +26,7 @@ export class WorkoutPlanFormComponent {
                 if(res.role == "PT"){
                     this.userService.getAllUserOfPt(res.uuid).subscribe(
                         res2 =>{
-                            this.users = res2;
+                            this.users = res2.users;
                         }
                     )
                 }

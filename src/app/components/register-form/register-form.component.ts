@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbDate, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {RegisterResponseDTO, RequestDTO} from "../../dto/auth";
-import {AuthService} from "../../services/auth.service";
 import {UserService} from "../../services/user.service";
 import {UserRequestDTO, UserResponseDTO} from "../../dto/user";
 
@@ -18,8 +16,7 @@ export class RegisterFormComponent implements OnInit{
     subscriptionStart!: NgbDate;
     subscriptionEnd!: NgbDate;
     role!: string;
-    isActive!: boolean;
-
+    isActive: boolean = true;
     uuidPt: string = "";
     @Input() user!:UserResponseDTO;
 
@@ -46,7 +43,7 @@ export class RegisterFormComponent implements OnInit{
             subscriptionStart: subscriptionStart,
             subscriptionEnd: subscriptionEnd,
             role: this.role,
-            isActive: this.isActive,
+            active: this.isActive,
             privacy: false,
             uuidPt: this.uuidPt
         };
@@ -82,6 +79,7 @@ export class RegisterFormComponent implements OnInit{
         if(this.user.subscriptionEnd!= null)
             this.subscriptionEnd = new NgbDate(subEnd.getUTCFullYear(),subEnd.getUTCMonth()+ 1, subEnd.getUTCDate());
         this.role= this.user.role;
+        console.log(this.user.email +" : " +this.user.active)
         this.isActive= this.user.active;
         this.uuidPt = this.user.uuidPt;
 

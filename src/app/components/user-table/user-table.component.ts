@@ -17,7 +17,7 @@ export class UserTableComponent {
     constructor(private userService:UserService) {
         userService.getAllUser(0, 20).subscribe(
             res =>{
-                this.users = res;
+                this.users = res.users;
             }
         )
     }
@@ -25,5 +25,9 @@ export class UserTableComponent {
 
     addUserView(user: UserResponseDTO) {
         this.users.unshift(user);
+    }
+
+    reloadPage() {
+        window.location.reload();
     }
 }

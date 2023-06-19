@@ -19,7 +19,7 @@ export class ListCustomerOfPtComponent {
                 this.me = res;
                 userService.getAllUserOfPt(res.uuid).subscribe(
                     res2 =>{
-                        this.users = res2;
+                        this.users = res2.users;
                     }
                 );
             }
