@@ -8,7 +8,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { UserDetailsFormComponent } from './components/user-details-form/user-details-form.component';
-import { TestComponent } from './components/test/test.component';
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import {JwtInterceptor} from "./interceptor/jwt.interceptor";
@@ -36,7 +35,6 @@ import { GenericHomePageComponent } from './pages/generic-home-page/generic-home
     AppComponent,
     RegisterFormComponent,
     UserDetailsFormComponent,
-    TestComponent,
     UserNavbarComponent,
     LoginPageComponent,
     TableBodyDetailsComponent,
