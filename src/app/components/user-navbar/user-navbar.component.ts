@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {UserResponseDTO} from "../../dto/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-navbar',
@@ -10,7 +11,7 @@ import {UserResponseDTO} from "../../dto/user";
 export class UserNavbarComponent {
 
     user!: UserResponseDTO;
-    constructor(private userService:UserService) {
+    constructor(private userService:UserService, public router:Router) {
         userService.user().subscribe(
             res=>{
                 this.user = res;
