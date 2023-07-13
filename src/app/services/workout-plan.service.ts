@@ -14,6 +14,7 @@ const httpHeaderOptions = {
 export class WorkoutPlanService {
 
     private apiUrl = 'http://localhost:8080/api/v1/workout';
+
     constructor(private http:HttpClient) { }
 
     workoutPlan(): Observable<WorkoutPlanDTO>{

@@ -14,17 +14,23 @@ export class RoomFormComponent {
     me!: UserResponseDTO;
 
     @Output() addedRoom: EventEmitter<RoomDTO> = new EventEmitter();
+
     name!: string;
+
     size!: number;
+
     active!: boolean;
 
     constructor(private modalService: NgbModal, private  userService:UserService, private roomService:RoomService) {
+        // Get logged user
         userService.user().subscribe(
             res=>{
                 this.me = res;
             }
         )
     }
+
+    // Open form logic
     open(content: any) {
         this.modalService.open(content, { size: 'sm' }).result.then();
     }
@@ -36,8 +42,6 @@ export class RoomFormComponent {
             name: this.name,
             id: 0
         };
-        console.log(this.active);
-        console.log(room);
 
         this.roomService.createRoom(room).subscribe(
             res => {

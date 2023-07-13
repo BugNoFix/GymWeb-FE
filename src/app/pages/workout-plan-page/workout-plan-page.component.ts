@@ -9,15 +9,17 @@ import {UserService} from "../../services/user.service";
 })
 export class WorkoutPlanPageComponent {
     me!: UserResponseDTO;
+
     isCustomer: boolean = true;
+
     constructor(private userService:UserService) {
+        // Get logged user
         userService.user().subscribe(
             res =>{
                 this.me = res;
                 if (res.role == "PT"){
                     this.isCustomer = false;
                 }
-                console.log(this.isCustomer);
             }
         );
     }

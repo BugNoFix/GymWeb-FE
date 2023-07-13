@@ -65,13 +65,13 @@
             <div *ngIf="role == 'CUSTOMER'">
                 <div class="form-group mb-2">
                     <label >Assign pt</label>
-                    <select class="form-select" name="role" [(ngModel)] = "uuidPt">
+                    <select class="form-select" name="pts" [(ngModel)] = "uuidPt">
                         <option selected>Select user's Pt</option>
                         <option *ngFor="let pt of pts" value={{pt.uuid}}>{{pt.name}} {{pt.surname}}</option>
                     </select>
                 </div>
             </div>
-
+            <!-- CheckBox-->
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="isActive" [(ngModel)] = "isActive">
                 <label class="form-check-label">User is active</label>

@@ -9,7 +9,9 @@ import {UserService} from "../../services/user.service";
 export class GenericHomePageComponent {
 
     role!: string;
+
     constructor(private userService:UserService){
+        // Get logged user
         userService.user().subscribe(
             res =>{
                 this.role = res.role;

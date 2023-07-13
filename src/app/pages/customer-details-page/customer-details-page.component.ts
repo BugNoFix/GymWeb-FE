@@ -12,7 +12,7 @@ export class CustomerDetailsPageComponent {
     uuid: string| null;
 
     customer!: UserResponseDTO;
-    constructor(private route: ActivatedRoute, userService:UserService) {
+    constructor(private route: ActivatedRoute) {
         this.uuid = this.route.snapshot.paramMap.get('uuid');
     }
 }

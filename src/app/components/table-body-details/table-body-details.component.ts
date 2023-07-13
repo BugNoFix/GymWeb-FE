@@ -9,9 +9,13 @@ import {UserBodyDetailsDTO} from "../../dto/user";
 })
 export class TableBodyDetailsComponent implements OnInit{
     bodyDetails!: UserBodyDetailsDTO[];
+
     size!: number;
+
     page!: number;
+
     collectionSize!: number;
+
     @Input() uuid!: string | null;
 
     constructor(private userService: UserService) {
@@ -22,6 +26,7 @@ export class TableBodyDetailsComponent implements OnInit{
     add(bodyDetails: UserBodyDetailsDTO){
         this.userService.setBodyDetails(bodyDetails).subscribe(
             res => {
+                // Update view
                 if(this.bodyDetails.length == this.size)
                     this.bodyDetails.pop();
                 this.bodyDetails.unshift(res);
@@ -29,6 +34,7 @@ export class TableBodyDetailsComponent implements OnInit{
         );
     }
 
+    // Get bodyDetails
     getData(page:number, size:number){
         // Homepage customer
         if(this.uuid == "" || this.uuid == null) {
@@ -36,7 +42,6 @@ export class TableBodyDetailsComponent implements OnInit{
                 res => {
                     this.bodyDetails = res.userBodyDetails;
                     this.collectionSize = res.totalElements;
-                    //this.changeDetection.detectChanges();
                 },
                 err => {
                     console.log(err);
@@ -49,7 +54,6 @@ export class TableBodyDetailsComponent implements OnInit{
                 res => {
                     this.bodyDetails = res.userBodyDetails;
                     this.collectionSize = res.totalElements;
-                    //this.changeDetection.detectChanges();
                 },
                 err => {
                     console.log(err);
@@ -58,6 +62,7 @@ export class TableBodyDetailsComponent implements OnInit{
         }
     }
 
+    // Change page of pagination
     refreshPage() {
         this.getData(this.page-1, this.size);
     }

@@ -74,15 +74,15 @@ export class UserService {
         return this.http.get<SearchUsersDTO>(url);
     }
 
-    getAllUser(page: number, size: number,): Observable<SearchUsersDTO>{
+    getAllUser(page: number, size: number): Observable<SearchUsersDTO>{
         const params = {page:page, size:size};
         const url = `${this.apiUrl}/all`;
         return this.http.get<SearchUsersDTO>(url, {params:params});
     }
 
-    getAllPt(page: number, size: number,): Observable<UserResponseDTO[]>{
+    getAllPt(page: number, size: number): Observable<SearchUsersDTO>{
         const params = {page:page, size:size};
         const url = `${this.apiUrl}/allPt`;
-        return this.http.get<UserResponseDTO[]>(url, {params:params});
+        return this.http.get<SearchUsersDTO>(url, {params:params});
     }
 }

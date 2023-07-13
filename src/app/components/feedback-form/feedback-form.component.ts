@@ -12,11 +12,13 @@ import {FeedbackDTO} from "../../dto/feedback";
 })
 export class FeedbackFormComponent {
     text!: string;
+
     me!: UserResponseDTO;
 
     @Output() addedFeedback: EventEmitter<FeedbackDTO> = new EventEmitter();
 
     constructor(private modalService: NgbModal, private  userService:UserService, private feedbackService:FeedbackService) {
+        // Get logged user
         userService.user().subscribe(
             res=>{
                 this.me = res;
@@ -24,6 +26,7 @@ export class FeedbackFormComponent {
         )
     }
     open(content: any) {
+        // Open form logic
         this.modalService.open(content, { size: 'md' }).result.then();
     }
 
@@ -33,6 +36,7 @@ export class FeedbackFormComponent {
             createdTime: null,
             userFeedbackDTOs: null
         };
+
         this.feedbackService.createFeedback(feedback).subscribe(
             res => {
                 this.addedFeedback.emit(res);

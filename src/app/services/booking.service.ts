@@ -14,6 +14,7 @@ const httpHeaderOptions = {
 export class BookingService {
 
     private apiUrl = 'http://localhost:8080/api/v1/booking';
+
     constructor(private http:HttpClient) { }
 
     createBooking(body:BookingDTO): Observable<BookingDTO>{

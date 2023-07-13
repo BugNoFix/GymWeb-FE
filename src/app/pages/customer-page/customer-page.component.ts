@@ -11,9 +11,8 @@ export class CustomerPageComponent {
     privacy!: boolean ;
     user!: UserResponseDTO;
 
-
-
     constructor(private userService: UserService) {
+        // Get logged user
         this.userService.user().subscribe(
             res => {
                 this.user = res;
@@ -21,7 +20,6 @@ export class CustomerPageComponent {
             }
         );
     }
-
 
     updatePrivacy() {
         this.privacy = !this.privacy

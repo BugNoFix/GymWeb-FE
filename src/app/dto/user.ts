@@ -26,8 +26,8 @@ export interface UserRequestDTO {
     surname: string;
     privacy: boolean;
     active: boolean;
-    subscriptionStart: Date;
-    subscriptionEnd: Date;
+    subscriptionStart: Date|null;
+    subscriptionEnd: Date |null;
     role: string;
     password: string;
     uuidPt:string;

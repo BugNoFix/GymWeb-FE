@@ -12,7 +12,9 @@ export class ListCustomerOfPtComponent {
     me!: UserResponseDTO;
 
     users!: UserResponseDTO[];
+
     constructor(private userService: UserService) {
+        // Getting all users of the pt logged
         userService.user().subscribe(
             res =>{
                 this.me = res;

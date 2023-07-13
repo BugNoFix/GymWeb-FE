@@ -10,17 +10,21 @@ import {RoomService} from "../../services/room.service";
 export class RoomTableComponent {
     rooms!: RoomDTO[];
 
-    constructor(private roomService:RoomService, private changeDetection: ChangeDetectorRef) {
+    constructor(private roomService:RoomService) {
+        // Get all rooms
         roomService.allRooms(0, 20).subscribe(
             res => {
                 this.rooms = res.rooms;
             }
         )
     }
+
+    // Update view after submit
     addRoomView(room: RoomDTO) {
         this.rooms.unshift(room);
     }
 
+    // Update room
     update(room: RoomDTO) {
         room.active = !room.active;
         this.roomService.roomUpdate(room).subscribe();

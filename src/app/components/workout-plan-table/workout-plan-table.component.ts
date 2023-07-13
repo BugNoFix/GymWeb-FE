@@ -9,11 +9,13 @@ import {WorkoutPlanDTO} from "../../dto/workout-plan";
   styleUrls: ['./workout-plan-table.component.css']
 })
 export class WorkoutPlanTableComponent implements OnInit{
+
     workoutPlans!: WorkoutPlanDTO[];
 
     isCustomer: boolean = true;
 
     @Input() uuid!: string | null;
+
     constructor(private workoutPlanService:WorkoutPlanService, private userService:UserService) {
         userService.user().subscribe(
             res => {
@@ -23,7 +25,7 @@ export class WorkoutPlanTableComponent implements OnInit{
         )
     }
 
-
+    //Update view
     addWorkoutView(workout: WorkoutPlanDTO) {
         this.workoutPlans.unshift(workout);
     }

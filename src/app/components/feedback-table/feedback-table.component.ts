@@ -16,13 +16,14 @@ export class FeedbackTableComponent {
 
     constructor(private feedbackService: FeedbackService, private userService: UserService) {
         userService.user().subscribe(
+            // Get uuid
             res => {
                 this.me = res;
                 let uuid;
                 if(this.me.role == "PT")
-                    uuid = this.me.uuid
+                    uuid = this.me.uuid // Get uuid of pt logged
                 else
-                    uuid = this.me.uuidPt
+                    uuid = this.me.uuidPt // Get uuid of my pt
                 feedbackService.getFeedbacksPt(uuid, 0, 20).subscribe(
                     res => {
                         this.feedbacks = res.feedbacks;
@@ -30,10 +31,9 @@ export class FeedbackTableComponent {
                 )
             }
         )
-
-
     }
 
+    // Update view
     updateFeedbacks(feedback: FeedbackDTO) {
         this.feedbacks.unshift(feedback);
     }

@@ -10,6 +10,7 @@ import {UserResponseDTO} from "../../dto/user";
 export class UserTableComponent {
 
     users!: UserResponseDTO[];
+
     constructor(private userService:UserService) {
         userService.getAllUser(0, 20).subscribe(
             res =>{
@@ -18,7 +19,7 @@ export class UserTableComponent {
         )
     }
 
-
+    //Update view
     addUserView(user: UserResponseDTO) {
         this.users.unshift(user);
     }

@@ -28,12 +28,14 @@ export class BookingPageComponent {
     roomSearch!: RoomDTO;
 
     constructor(private bookingService:BookingService, private roomService:RoomService, private userService:UserService) {
-        // TODO: visualizza massimo le prime 20 room
+        // Get all rooms
         this.roomService.allRooms(0, 20).subscribe(
             res => {
                 this.rooms = res.rooms;
             }
         );
+
+        // Get logged user
         userService.user().subscribe(
             res =>{
                 if(res.role == "CUSTOMER")
@@ -85,16 +87,5 @@ export class BookingPageComponent {
                 console.log(this.bookeds);
             }
         )
-
-    }
-
-    minutesUpdate(time: any) {
-        if (this.timeStartSearch.minute > 0 && this.timeStartSearch.minute < 15)
-            time = { hour: 0, minute: 15 };
-        console.log(time)
-    }
-
-    timeStartSearchUpdate() {
-       this.minutesUpdate(this.timeStartSearch);
     }
 }

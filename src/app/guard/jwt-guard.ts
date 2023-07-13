@@ -27,9 +27,6 @@ export class JwtGuard implements CanActivate {
         return true;
     }
 
-    getExpiration(token: any){
-
-    }
     getDecodedAccessToken(token: string): any {
         try {
             return jwt_decode(token);

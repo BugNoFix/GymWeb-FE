@@ -11,7 +11,9 @@ import {Router} from "@angular/router";
 export class UserNavbarComponent implements OnInit{
 
     user!: UserResponseDTO;
+
     constructor(private userService:UserService, public router:Router) {
+        // Get logged user
         userService.user().subscribe(
             res=>{
                 this.user = res;
@@ -19,10 +21,12 @@ export class UserNavbarComponent implements OnInit{
         )
 
     }
+
     logout() {
         localStorage.removeItem('jwtToken');
     }
 
+    // Update navbar
     ngOnInit(): void {
         this.userService.getUserUpdates().subscribe(u => {
             if(u)

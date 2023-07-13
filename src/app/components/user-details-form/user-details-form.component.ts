@@ -11,15 +11,22 @@ export class UserDetailsFormComponent {
     @Output() onAddUser: EventEmitter<UserBodyDetailsDTO> = new EventEmitter();
 
     weight!: number;
+
     bodyfat!: number;
+
     height!: number;
+
     chest!: number;
+
     upperArm!: number;
+
     shoulders!: number;
+
     waist!: number;
-    uploadTime!: Date;
+
 
     constructor(private modalService: NgbModal) {}
+
     open(content: any) {
         this.modalService.open(content, { size: 'sm' }).result.then();
     }
@@ -34,8 +41,8 @@ export class UserDetailsFormComponent {
             shoulders: this.shoulders,
             waist: this.waist
         };
-        this.onAddUser.emit(userDetails);
 
+        this.onAddUser.emit(userDetails);
     }
 
 }

@@ -10,30 +10,49 @@ import {UserRequestDTO, UserResponseDTO} from "../../dto/user";
 })
 export class RegisterFormComponent implements OnInit{
     name!: string;
+
     surname!: string;
+
     email!: string;
+
     password!: string;
-    subscriptionStart!: NgbDate;
+
+    subscriptionStart: NgbDate|null = null;
+
     subscriptionEnd!: NgbDate;
+
     role!: string;
+
     isActive: boolean = true;
+
     uuidPt: string = "";
-    @Input() user!:UserResponseDTO;
+
+    @Input() user!:UserResponseDTO
 
     pts!: UserResponseDTO[];
+
     @Output() addUser: EventEmitter<UserResponseDTO> = new EventEmitter();
+
     @Output() updateUser: EventEmitter<UserResponseDTO> = new EventEmitter();
 
     constructor(private modalService: NgbModal, private userService:UserService) {}
+
+    // Open form logic
     open(content: any) {
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then();
     }
 
     onSubmit(){
         // Convert ngbdate in date
-        const subscriptionStart = new Date(this.subscriptionStart.year, this.subscriptionStart.month - 1, this.subscriptionStart.day, 2); // +2h timezone
-        const subscriptionEnd = new Date(this.subscriptionEnd.year, this.subscriptionEnd.month - 1, this.subscriptionEnd.day, 2);
-        console.log("submit:" + subscriptionStart)
+        let subscriptionStart = null;
+        let subscriptionEnd = null;
+        if(this.subscriptionStart != null) {
+            subscriptionStart = new Date(this.subscriptionStart.year, this.subscriptionStart.month - 1, this.subscriptionStart.day, 2); // +2h timezone
+        }
+        if(this.subscriptionEnd != null) {
+            subscriptionEnd = new Date(this.subscriptionEnd.year, this.subscriptionEnd.month - 1, this.subscriptionEnd.day, 2);
+        }
+
         const user: UserRequestDTO = {
             name: this.name,
             surname: this.surname,
@@ -66,7 +85,15 @@ export class RegisterFormComponent implements OnInit{
         }
 
     }
+
+    // Set data form of the user of db
     ngOnInit(): void {
+        this.userService.getAllPt(0, 20).subscribe(
+            res =>{
+                console.log(res)
+                this.pts = res.users;
+            }
+        )
         if(this.user == null)
             return;
         this.name = this.user.name;
@@ -82,12 +109,6 @@ export class RegisterFormComponent implements OnInit{
         console.log(this.user.email +" : " +this.user.active)
         this.isActive= this.user.active;
         this.uuidPt = this.user.uuidPt;
-
-        this.userService.getAllPt(0, 20).subscribe(
-            res =>{
-                this.pts = res;
-            }
-        )
     }
 
 }

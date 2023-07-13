@@ -12,7 +12,9 @@ import {WorkoutPlanService} from "../../services/workout-plan.service";
 })
 export class WorkoutPlanFormComponent {
     users!: UserResponseDTO[];
+
     me!: UserResponseDTO;
+
     selectedUser!: UserResponseDTO;
 
     workoutPlan: File | any;
@@ -20,9 +22,11 @@ export class WorkoutPlanFormComponent {
     @Output() addedWorkout: EventEmitter<WorkoutPlanDTO> = new EventEmitter();
 
     constructor(private modalService: NgbModal, private  userService:UserService, private workoutPlanService:WorkoutPlanService) {
+        // Get logged user
         this.userService.user().subscribe(
             res =>{
                 this.me = res;
+                // If user is pt, get its customers
                 if(res.role == "PT"){
                     this.userService.getAllUserOfPt(res.uuid).subscribe(
                         res2 =>{
@@ -34,9 +38,12 @@ export class WorkoutPlanFormComponent {
         )
 
     }
+
+    //Open form logic
     open(content: any) {
         this.modalService.open(content, { size: 'md' }).result.then();
     }
+
     onSubmit() {
         this.workoutPlanService.uploadWorkoutPlan(this.workoutPlan, this.selectedUser.uuid).subscribe(
             res =>{
@@ -45,6 +52,7 @@ export class WorkoutPlanFormComponent {
         )
     }
 
+    // Set file for upload
     onFileChange(files: any) {
         this.workoutPlan = files.target.files.item(0);
     }
