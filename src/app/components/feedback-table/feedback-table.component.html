@@ -1,7 +1,7 @@
 <div class="container mt-5" style="width: 70vh">
     <div class="row justify-content-between bg-dark text-bg-dark p-2">
         <div class="col-6">
-            <h3>FeedBack</h3>
+            <h3>Feedback</h3>
         </div>
         <div class="col-6 d-flex justify-content-end">
             <div *ngIf="me.role == 'CUSTOMER'">
@@ -20,11 +20,13 @@
             </thead>
             <tbody>
             <tr *ngFor="let feedback of feedbacks;">
-                <div *ngFor = "let user of feedback.userFeedbackDTOs">
-                    <div *ngIf="user.role == 'CUSTOMER'">
-                        <td>{{user.name}}</td>
+                <td>
+                    <div *ngFor = "let user of feedback.userFeedbackDTOs">
+                        <div *ngIf="user.role == 'CUSTOMER'">
+                            {{user.name}}
+                        </div>
                     </div>
-                </div>
+                </td>
                 <td>{{feedback.text}}</td>
                 <td>{{feedback.createdTime | date: 'dd-MM-yyyy'}}</td>
             </tr>

@@ -21,7 +21,7 @@ export class UserTableComponent {
 
     //Update view
     addUserView(user: UserResponseDTO) {
-        this.users.unshift(user);
+        this.users.push(user);
     }
 
     reloadPage() {

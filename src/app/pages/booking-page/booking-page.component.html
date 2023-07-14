@@ -4,15 +4,15 @@
             <div class="col-6">
                 <h3>Booking</h3>
             </div>
-            <div class="col-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">Show</button>
+            <div class="col-6 d-flex justify-content-end" >
+                <button type="submit" class="btn btn-primary" >New</button>
             </div>
         </div>
         <div class="modal-body mt-3">
             <!-- SubscriptionStart -->
             <div class="row mb-2">
                 <div class="col-5">
-                    <div class="form-group">
+                    <div class="form-group mt-1">
                         <label>Date</label>
                         <div class="input-group" style="top:1.4vh">
                             <input class="form-control" placeholder="yyyy-mm-dd" name="searchTime" [(ngModel)] = "date" ngbDatepicker #dateB="ngbDatepicker"/>
@@ -20,12 +20,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-6 row">
-                    <div class="col-6 d-flex justify-content-end">
+                <div class="col-7 row">
+                    <div class="col-6">
                         <ngb-timepicker [(ngModel)]="timeStart" name="timeStart" [minuteStep] = "15" ></ngb-timepicker>
                     </div>
-                    <div class="col-6 d-flex justify-content-start" >
+                    <div class="col-6" >
                         <ngb-timepicker [(ngModel)]="timeEnd" name="timeEnd" [minuteStep] = "15" ></ngb-timepicker>
                     </div>
                 </div>
@@ -56,8 +55,8 @@
     <div class="mt-2">
         <div class="container mt-5" style="width: 70vh">
             <form (ngSubmit)="userBooked()" >
-                <div class="row justify-content-between bg-dark text-bg-dark p-2">
-                    <div class="col-6">
+                <div class="row justify-content-between bg-dark text-bg-dark p-2" style="margin-right: 1px;">
+                    <div class="col-10">
                         <div *ngIf="customer">
                             <h3>Show Pt booked</h3>
                         </div>
@@ -65,7 +64,7 @@
                             <h3>Show Customer booked</h3>
                         </div>
                     </div>
-                    <div class="col-6 d-flex justify-content-end">
+                    <div class="col-2 d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">Show</button>
                     </div>
                 </div>
@@ -73,7 +72,7 @@
                     <!-- SubscriptionStart -->
                     <div class="row mb-2">
                         <div class="col-5">
-                            <div class="form-group">
+                            <div class="form-group mt-1">
                                 <label>Date</label>
                                 <div class="input-group" style="top:1.4vh">
                                     <input class="form-control" placeholder="yyyy-mm-dd" name="searchTime" [(ngModel)] = "searchDate" ngbDatepicker #dateT="ngbDatepicker"/>
@@ -81,12 +80,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1"></div>
-                        <div class="col-6 row">
-                            <div class="col-6 d-flex justify-content-end">
+                        <div class="col-7 row">
+                            <div class="col-6 ">
                                 <ngb-timepicker [(ngModel)]="timeStartSearch" name="timeStart" [minuteStep] = "15" ></ngb-timepicker>
                             </div>
-                            <div class="col-6 d-flex justify-content-start" >
+                            <div class="col-6" >
                                 <ngb-timepicker [(ngModel)]="timeEndSearch" name="timeEnd" [minuteStep] = "15" ></ngb-timepicker>
                             </div>
                         </div>
